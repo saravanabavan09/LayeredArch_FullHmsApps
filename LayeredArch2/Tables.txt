@@ -1,0 +1,493 @@
+SQL> select * from purchase_details;
+
+PURCHASEID CNAME                MAILID
+---------- -------------------- ------------------------------
+PHONENO                MOBILEID
+-------------------- ----------
+      1007 Nihal Sekhar         nihalsekhar10@gmail.com
+9176656056                 1003
+
+      1008 Sushil Sekhar        sushilsekhar10@gmail.com
+9840288660                 1001
+
+      1009 Rajasekaran          raj@gmail.com
+9962677842                 1006
+
+
+PURCHASEID CNAME                MAILID
+---------- -------------------- ------------------------------
+PHONENO                MOBILEID
+-------------------- ----------
+      1010 Lionel Messi         leomessi@yahoo.com
+9099889909                 1002
+
+      1011 Jill Jack            jillja@outlook.com
+9176656543                 1000
+
+
+SQL> select * from mobiles;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1001 Samsung Galaxy IV         38000 40
+      1002 Sony Xperia C             15000 30
+      1003 One Plus 5T               38000 10
+      1004 Redmi Note 6 pro          21000 30
+      1005 One Plus 5                36000 20
+      1006 One Plus X                30000 30
+
+7 rows selected.
+
+SQL> select * from mobiles;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1001 Samsung Galaxy IV         38000 39
+      1002 Sony Xperia C             15000 30
+      1003 One Plus 5T               38000 10
+      1004 Redmi Note 6 pro          21000 30
+      1005 One Plus 5                36000 20
+      1006 One Plus X                30000 30
+
+7 rows selected.
+
+SQL> select * from mobiles;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1001 Samsung Galaxy IV         38000 39
+      1002 Sony Xperia C             15000 30
+      1003 One Plus 5T               38000 10
+      1004 Redmi Note 6 pro          21000 30
+      1005 One Plus 5                36000 20
+      1006 One Plus X                30000 29
+
+7 rows selected.
+
+SQL> select * from purchase_details;
+
+PURCHASEID CNAME                MAILID
+---------- -------------------- ------------------------------
+PHONENO                MOBILEID
+-------------------- ----------
+      1007 Nihal Sekhar         nihalsekhar10@gmail.com
+9176656056                 1003
+
+      1008 Sushil Sekhar        sushilsekhar10@gmail.com
+9840288660                 1001
+
+      1009 Rajasekaran          raj@gmail.com
+9962677842                 1006
+
+
+PURCHASEID CNAME                MAILID
+---------- -------------------- ------------------------------
+PHONENO                MOBILEID
+-------------------- ----------
+      1010 Lionel Messi         leomessi@yahoo.com
+9099889909                 1002
+
+      1011 Jill Jack            jillja@outlook.com
+9176656543                 1000
+
+      1020 Suarez               suarez.luis@outlook.com
+9176656012                 1004
+
+
+PURCHASEID CNAME                MAILID
+---------- -------------------- ------------------------------
+PHONENO                MOBILEID
+-------------------- ----------
+      1021 Cristiano            ronaldo@live.com
+9840288779                 1001
+
+      1022 Abdulla              abdul@gmail.com
+9167765056                 1006
+
+
+8 rows selected.
+
+SQL> insert into mobiles values (mob_seq.nextval,'Apple iPhone XS Max', 99999,30);
+
+1 row created.
+
+SQL> select * from mobiles;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1001 Samsung Galaxy IV         38000 39
+      1002 Sony Xperia C             15000 30
+      1003 One Plus 5T               38000 10
+      1004 Redmi Note 6 pro          21000 30
+      1005 One Plus 5                36000 20
+      1006 One Plus X                30000 29
+      1023 Apple iPhone XS Max       99999 30
+
+8 rows selected.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> delete mobiles where mobileid = 1023;
+
+1 row deleted.
+
+SQL> select * from mobiles;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1001 Samsung Galaxy IV         38000 39
+      1002 Sony Xperia C             15000 30
+      1003 One Plus 5T               38000 10
+      1004 Redmi Note 6 pro          21000 30
+      1005 One Plus 5                36000 20
+      1006 One Plus X                30000 29
+
+7 rows selected.
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from mobiles;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1001 Samsung Galaxy IV         38000 39
+      1002 Sony Xperia C             15000 30
+      1003 One Plus 5T               38000 10
+      1004 Redmi Note 6 pro          21000 30
+      1005 One Plus 5                36000 20
+      1006 One Plus X                30000 29
+      1023 Apple iPhone XS Max       99999 30
+
+8 rows selected.
+
+SQL> select * from mobiles;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1001 Samsung Galaxy IV         38000 39
+      1002 Sony Xperia C             15000 30
+      1003 One Plus 5T               38000 10
+      1004 Redmi Note 6 pro          21000 30
+      1005 One Plus 5                36000 20
+      1006 One Plus X                30000 29
+
+7 rows selected.
+
+SQL> select * from mobiles where price between 8000 and 30000;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1002 Sony Xperia C             15000 30
+      1004 Redmi Note 6 pro          21000 30
+      1006 One Plus X                30000 29
+
+SQL> desc mobiles;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ MOBILEID                                  NOT NULL NUMBER
+ NAME                                               VARCHAR2(20)
+ PRICE                                              NUMBER(10,2)
+ QUANTITY                                           VARCHAR2(20)
+
+SQL> desc product_table;
+ERROR:
+ORA-04043: object product_table does not exist
+
+
+SQL> desc purchase_details;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PURCHASEID                                         NUMBER
+ CNAME                                              VARCHAR2(20)
+ MAILID                                             VARCHAR2(30)
+ PHONENO                                            VARCHAR2(20)
+ MOBILEID                                           NUMBER
+
+SQL> alter table purchase_details add mobileid reference mobiles(mobileid);
+alter table purchase_details add mobileid reference mobiles(mobileid)
+                                                    *
+ERROR at line 1:
+ORA-01735: invalid ALTER TABLE option
+
+
+SQL> alter table purchase_details add mobileid references mobiles(mobileid);
+alter table purchase_details add mobileid references mobiles(mobileid)
+                                 *
+ERROR at line 1:
+ORA-01430: column being added already exists in table
+
+
+SQL> alter table purchase_details add foreign key(mobileid) references mobiles(mobileid);
+alter table purchase_details add foreign key(mobileid) references mobiles(mobileid)
+                                 *
+ERROR at line 1:
+ORA-02275: such a referential constraint already exists in the table
+
+
+SQL> insert into mobiles values (mob_seq.nextval,'Apple iPhone XS Max', 99999,30);
+
+1 row created.
+
+SQL> select * from mobiles;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1001 Samsung Galaxy IV         38000 39
+      1002 Sony Xperia C             15000 30
+      1003 One Plus 5T               38000 10
+      1004 Redmi Note 6 pro          21000 30
+      1005 One Plus 5                36000 20
+      1006 One Plus X                30000 29
+      1024 Apple iPhone XS Max       99999 30
+
+8 rows selected.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> commit
+  2  ;
+
+Commit complete.
+
+SQL> select * from mobiles;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1001 Samsung Galaxy IV         38000 39
+      1002 Sony Xperia C             15000 30
+      1003 One Plus 5T               38000 10
+      1004 Redmi Note 6 pro          21000 30
+      1005 One Plus 5                36000 20
+      1006 One Plus X                30000 29
+      1024 Apple iPhone XS Max       99999 30
+
+8 rows selected.
+
+SQL> select * from mobiles;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1001 Samsung Galaxy IV         38000 39
+      1002 Sony Xperia C             15000 30
+      1003 One Plus 5T               38000 10
+      1004 Redmi Note 6 pro          21000 30
+      1005 One Plus 5                36000 20
+      1006 One Plus X                30000 29
+
+7 rows selected.
+
+SQL> select * from purchase_details;
+
+PURCHASEID CNAME                MAILID
+---------- -------------------- ------------------------------
+PHONENO                MOBILEID
+-------------------- ----------
+      1007 Nihal Sekhar         nihalsekhar10@gmail.com
+9176656056                 1003
+
+      1008 Sushil Sekhar        sushilsekhar10@gmail.com
+9840288660                 1001
+
+      1009 Rajasekaran          raj@gmail.com
+9962677842                 1006
+
+
+PURCHASEID CNAME                MAILID
+---------- -------------------- ------------------------------
+PHONENO                MOBILEID
+-------------------- ----------
+      1010 Lionel Messi         leomessi@yahoo.com
+9099889909                 1002
+
+      1011 Jill Jack            jillja@outlook.com
+9176656543                 1000
+
+      1020 Suarez               suarez.luis@outlook.com
+9176656012                 1004
+
+
+PURCHASEID CNAME                MAILID
+---------- -------------------- ------------------------------
+PHONENO                MOBILEID
+-------------------- ----------
+      1021 Cristiano            ronaldo@live.com
+9840288779                 1001
+
+      1022 Abdulla              abdul@gmail.com
+9167765056                 1006
+
+
+8 rows selected.
+
+SQL> insert into mobiles values (mob_seq.nextval,'Apple iPhone XS Max', 99999,30);
+
+1 row created.
+
+SQL> select * from mobiles;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1001 Samsung Galaxy IV         38000 39
+      1002 Sony Xperia C             15000 30
+      1003 One Plus 5T               38000 10
+      1004 Redmi Note 6 pro          21000 30
+      1005 One Plus 5                36000 20
+      1006 One Plus X                30000 29
+      1025 Apple iPhone XS Max       99999 30
+
+8 rows selected.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from mobiles where price between 8000 and 30000;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1002 Sony Xperia C             15000 30
+      1004 Redmi Note 6 pro          21000 30
+      1006 One Plus X                30000 29
+
+SQL> select * from purchase_details;
+
+PURCHASEID CNAME                MAILID
+---------- -------------------- ------------------------------
+PHONENO                MOBILEID
+-------------------- ----------
+      1007 Nihal Sekhar         nihalsekhar10@gmail.com
+9176656056                 1003
+
+      1008 Sushil Sekhar        sushilsekhar10@gmail.com
+9840288660                 1001
+
+      1009 Rajasekaran          raj@gmail.com
+9962677842                 1006
+
+
+PURCHASEID CNAME                MAILID
+---------- -------------------- ------------------------------
+PHONENO                MOBILEID
+-------------------- ----------
+      1010 Lionel Messi         leomessi@yahoo.com
+9099889909                 1002
+
+      1011 Jill Jack            jillja@outlook.com
+9176656543                 1000
+
+      1020 Suarez               suarez.luis@outlook.com
+9176656012                 1004
+
+
+PURCHASEID CNAME                MAILID
+---------- -------------------- ------------------------------
+PHONENO                MOBILEID
+-------------------- ----------
+      1021 Cristiano            ronaldo@live.com
+9840288779                 1001
+
+      1022 Abdulla              abdul@gmail.com
+9167765056                 1006
+
+      1026 nihal                nihalsekhar10@gmail.com
+917665605612               1001
+
+
+9 rows selected.
+
+SQL> delete from purchase_details where purchaseif = 1026;
+delete from purchase_details where purchaseif = 1026
+                                   *
+ERROR at line 1:
+ORA-00904: "PURCHASEIF": invalid identifier
+
+
+SQL> delete from purchase_details where purchaseid = 1026;
+
+1 row deleted.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from mobiles;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1001 Samsung Galaxy IV         38000 38
+      1002 Sony Xperia C             15000 29
+      1003 One Plus 5T               38000 10
+      1004 Redmi Note 6 pro          21000 29
+      1005 One Plus 5                36000 20
+      1006 One Plus X                30000 29
+
+7 rows selected.
+
+SQL>
+SQL> insert into mobiles values(mob_seq.nextval,'MicromaxChi',9000,0);
+
+1 row created.
+
+SQL> select * from mobiles;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1001 Samsung Galaxy IV         38000 38
+      1002 Sony Xperia C             15000 29
+      1003 One Plus 5T               38000 10
+      1004 Redmi Note 6 pro          21000 29
+      1005 One Plus 5                36000 20
+      1006 One Plus X                30000 29
+      1029 MicromaxChi                9000 0
+
+8 rows selected.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> update mobiles set quantity = 30 where mobileid = 1029;
+
+1 row updated.
+
+SQL> select * from mobiles;
+
+  MOBILEID NAME                      PRICE QUANTITY
+---------- -------------------- ---------- --------------------
+      1000 Nokia Lumia 520            8000 20
+      1001 Samsung Galaxy IV         38000 38
+      1002 Sony Xperia C             15000 29
+      1003 One Plus 5T               38000 10
+      1004 Redmi Note 6 pro          21000 29
+      1005 One Plus 5                36000 20
+      1006 One Plus X                30000 29
+      1029 MicromaxChi                9000 30
+
+8 rows selected.
+
+SQL> commit;
+
+Commit complete.
+
+SQL>
